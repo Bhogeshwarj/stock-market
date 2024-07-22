@@ -11,8 +11,12 @@ export default function dashboardLayout({
 }>) {
   return (
 <div>
-  <div className={inter.className}>{children} </div>
-</div>
+
+    <div className="">
+        {children}
+    </div>
+    </div>
+
 
   );
 }
