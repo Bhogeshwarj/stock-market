@@ -14,7 +14,7 @@ export default function dashboardLayout({
 <div>
     <Header/>
     
-  <div className={inter.className}>{children} </div>
+  <div className={inter.className} >{children} </div>
 </div>
 
   );

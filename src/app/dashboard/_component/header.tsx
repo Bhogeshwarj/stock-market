@@ -33,14 +33,18 @@ function Header() {
                     ${path === '/dashboard/fundamental-analysis' && 'text-gray-300 font-extrabold'}`}
                     onClick={() => handleNavigation('/dashboard/fundamental-analysis')}
                 >Fundamental Analysis</li>
-                <li className={`hover:text-gray-300 hover:font-extrabold transition-all cursor-pointer
+                {/* <li className={`hover:text-gray-300 hover:font-extrabold transition-all cursor-pointer
                     ${path === '/dashboard/technical-analysis' && 'text-gray-300 font-extrabold'}`}
                     onClick={() => handleNavigation('/dashboard/technical-analysis')}
-                >Technical Analysis</li>
-                <li className={`hover:text-gray-300 hover:font-extrabold transition-all cursor-pointer
+                >Technical Analysis</li> */}
+                {/* <li className={`hover:text-gray-300 hover:font-extrabold transition-all cursor-pointer
                     ${path === '/dashboard/algo-trading' && 'text-gray-300 font-extrabold'}`}
                     onClick={() => handleNavigation('/dashboard/algo-trading')}
-                >Algo Trading</li>
+                >Algo Trading</li> */}
+                <li className={`hover:text-gray-300 hover:font-extrabold transition-all cursor-pointer
+                    ${path === '/dashboard/future-plans' && 'text-gray-300 font-extrabold'}`}
+                    onClick={() => handleNavigation('/dashboard/future-plans')}
+                >Finance Tracker</li>
                 <li className={`hover:text-gray-300 hover:font-extrabold transition-all cursor-pointer
                     ${path === '/dashboard/future-plans' && 'text-gray-300 font-extrabold'}`}
                     onClick={() => handleNavigation('/dashboard/future-plans')}
@@ -58,14 +62,18 @@ function Header() {
                             ${path === '/dashboard/fundamental-analysis' && 'text-gray-300 font-extrabold'}`}
                             onClick={() => handleNavigation('/dashboard/fundamental-analysis')}
                         >Fundamental Analysis</li>
-                        <li className={`hover:text-gray-300 hover:font-extrabold transition-all cursor-pointer
+                        {/* <li className={`hover:text-gray-300 hover:font-extrabold transition-all cursor-pointer
                             ${path === '/dashboard/technical-analysis' && 'text-gray-300 font-extrabold'}`}
                             onClick={() => handleNavigation('/dashboard/technical-analysis')}
                         >Technical Analysis</li>
                         <li className={`hover:text-gray-300 hover:font-extrabold transition-all cursor-pointer
                             ${path === '/dashboard/algo-trading' && 'text-gray-300 font-extrabold'}`}
                             onClick={() => handleNavigation('/dashboard/algo-trading')}
-                        >Algo Trading</li>
+                        >Algo Trading</li> */}
+                         <li className={`hover:text-gray-300 hover:font-extrabold transition-all cursor-pointer
+                    ${path === '/dashboard/future-plans' && 'text-gray-300 font-extrabold'}`}
+                    onClick={() => handleNavigation('/dashboard/future-plans')}
+                        >Finance Tracker</li>
                         <li className={`hover:text-gray-300 hover:font-extrabold transition-all cursor-pointer
                             ${path === '/dashboard/future-plans' && 'text-gray-300 font-extrabold'}`}
                             onClick={() => handleNavigation('/dashboard/future-plans')}
