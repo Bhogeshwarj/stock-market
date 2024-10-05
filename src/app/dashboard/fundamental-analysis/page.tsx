@@ -43,21 +43,21 @@ function Financial() {
         </ol>
         <h3 className="text-xl text-gray-800 mt-5 mb-2">Investment Due Diligence Checklist:</h3>
         <ol className="list-decimal list-inside text-gray-700 mt-2 text-left mx-auto inline-block">
-          <li>MOAT: A company's competitive advantage.</li>
+          <li>MOAT: A company`&apos;` competitive advantage.</li>
           <li>Understanding the Business: Requires reading the annual reports.</li>
           <li>Application of the Checklist.</li>
           <li>Valuation: Estimating intrinsic value using DCF and CCA.</li>
         </ol>
         <h3 className="text-xl text-gray-800 mt-5 mb-2">Checklist for investing in the business:</h3>
         <ul className="list-disc list-inside text-gray-700 mt-2 text-left mx-auto inline-block">
-          <li>Gross Profit Margin (>20%)</li>
+          <li>Gross Profit Margin (`&gt;`20%)</li>
           <li>Revenue Growth in line with gross profit growth</li>
           <li>EPS should be consistent with Net Profits</li>
           <li>Debt Level: Company should not be highly leveraged</li>
           <li>Inventory: Growing inventory with growing PAT (for manufacturing companies)</li>
           <li>Sales vs Receivables: Sales backed by receivables is not a great sign</li>
           <li>Cash Flow from Operations: Should be positive</li>
-          <li>Return on Equity (>25%)</li>
+          <li>Return on Equity (`&gt;`25%)</li>
       
         </ul>
       </div>

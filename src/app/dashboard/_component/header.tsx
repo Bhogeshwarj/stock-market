@@ -11,7 +11,7 @@ function Header() {
     const router = useRouter();
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const handleNavigation = (url) => {
+    const handleNavigation = (url:any) => { //TODO change the type
         setMenuOpen(false); // Close menu on navigation
         router.push(url);
     };

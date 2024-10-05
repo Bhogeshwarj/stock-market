@@ -2,11 +2,13 @@
 import React, { useState } from 'react';
 import TradingviewWidget from './_component/tradingviewWidget';
 
-function Page() {
-  const [stockName, setStockName] = useState('');
-  const [watchList, setWatchList] = useState([]);
+type Stock = string;
 
-  const handleAddToWatchList = (stock) => {
+function Page() {
+  const [stockName, setStockName] = useState<string>('');
+  const [watchList, setWatchList] = useState<Stock[]>([]);
+
+  const handleAddToWatchList = (stock:Stock ) => {
     if (stock && !watchList.includes(stock)) {
       setWatchList([...watchList, stock]);
       // TODO: Save this stock to the watchlist database
@@ -29,7 +31,7 @@ function Page() {
           <h4 className='font-semibold text-xl mb-4 text-black-600'>Market Overview</h4>
           <TradingviewWidget />
         </div>
-      </div> */}
+      </div>  */}
 
       {/* Search Stock and Add to Watch List */}
       <div className='my-8 shadow-md rounded-lg bg-white p-6'>
@@ -52,19 +54,56 @@ function Page() {
       
 
       {/* Watch List */}
-        <h4 className='font-semibold text-xl m-4 text-black-600'>Your Watch List</h4>
-        <ul className='list-disc pl-6'>
-          {watchList.length === 0 ? (
-            <li className='text-gray-500'>No stocks in the watch list yet</li>
-          ) : (
-            watchList.map((stock, index) => (
-              <li key={index} className='text-gray-700 font-medium'>
-                {stock}
-              </li>
-            ))
-          )}
-        </ul>
-        </div>
+      <div>
+  <h4 className='font-semibold text-xl m-4 text-black'>Your Watch List</h4>
+
+  {watchList.length === 0 ? (
+    <p className='text-gray-500'>No stocks in the watch list yet</p>
+  ) : (
+    <table className='min-w-full table-auto border-collapse'>
+      <thead>
+        <tr className='bg-gray-100'>
+          <th className='px-4 py-2 border text-left'>Stock</th>
+          <th className='px-4 py-2 border text-left'>Action</th>
+          <th className='px-4 py-2 border text-left'>Analysed</th>
+          <th className='px-4 py-2 border text-left'>Remarks</th>
+        </tr>
+      </thead>
+      <tbody>
+        {watchList.map((stock, index) => (
+          <tr key={index} className='border'>
+            {/* Stock Name Column */}
+            <td className='px-4 py-2 border text-gray-700 font-medium'>{stock}</td>
+
+            {/* Fundamental Analysis Link/Button */}
+            <td className='px-4 py-2 border'>
+              <a 
+                href={`/fundamental-analysis/${stock}`} 
+                className='text-blue-500 hover:underline'
+              >
+                Fundamental Analysis
+              </a>
+            </td>
+
+            {/* Checkbox Column */}
+            <td className='px-4 py-2 border text-center'>
+              <input type='checkbox' />
+            </td>
+            <td className='px-4 py-2 border text-center'>
+  <input 
+    type='text' 
+    className='w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500' 
+    placeholder='Comment here' 
+  />
+</td>
+
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  )}
+</div>
+      </div>
     </div>
   );
 }
