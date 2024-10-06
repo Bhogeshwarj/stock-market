@@ -17,7 +17,7 @@ function Header() {
     };
 
     return (
-        <div className='flex h-20 p-4 items-center justify-between bg-black shadow-lg'>
+        <div className="flex bg-black sticky z-50 bg-opacity-100 top-0 backdrop-filter backdrop-blur-lg items-center justify-between flex-wrap p-6 -mb-2">
             <Image src={'/logo.svg'} width={60} height={40} alt='logo' />
             
             <div className='md:hidden'>
@@ -43,7 +43,7 @@ function Header() {
                 >Algo Trading</li> */}
                 <li className={`hover:text-gray-300 hover:font-extrabold transition-all cursor-pointer
                     ${path === '/dashboard/future-plans' && 'text-gray-300 font-extrabold'}`}
-                    onClick={() => handleNavigation('/dashboard/future-plans')}
+                    onClick={() => handleNavigation('/dashboard/finance-tracker')}
                 >Finance Tracker</li>
                 <li className={`hover:text-gray-300 hover:font-extrabold transition-all cursor-pointer
                     ${path === '/dashboard/future-plans' && 'text-gray-300 font-extrabold'}`}

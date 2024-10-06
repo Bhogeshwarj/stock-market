@@ -4,7 +4,7 @@ function Page() {
   return (
     <div className="container mx-auto shadow-lg p-5 bg-gradient-to-r from-gray-100 to-gray-200 rounded-lg">
       <div className="p-10 rounded-lg bg-white text-center shadow-md">
-        <h2 className="font-bold text-3xl text-green-600 mb-4">📋 Software Roadmap 📋</h2>
+        <h2 className="font-bold text-3xl text-black mb-4">📋 Software Roadmap 📋</h2>
         <p className="text-gray-700 mb-4">What are the plans for this software?</p>
       </div>
 
@@ -26,7 +26,7 @@ function Page() {
       </div>
 
       <div className="text-center mt-10">
-        <button className="bg-green-500 text-white py-2 px-4 rounded-full hover:bg-green-700 transition-all duration-300">
+        <button className="bg-black text-white py-2 px-4 rounded-full hover:bg-green-700 transition-all duration-300">
           🌟 Stay Tuned for More Updates 🌟
         </button>
       </div>

@@ -1,7 +1,14 @@
+"use client"
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
 
 function Financial() {
+  const router = useRouter();
+
+    const handleNavigation = (url:any) => { 
+        router.push(url);
+    };
   return (
     <div className="container mx-auto shadow-lg p-5 bg-gradient-to-r from-gray-100 to-gray-200 rounded-lg">
       <div className="p-10 rounded-lg bg-white text-center shadow-md">
@@ -76,11 +83,27 @@ function Financial() {
         </ol>
       </div>
 
-      <div className="text-center mt-10">
-        <Button className="bg-primary text-white px-10 py-2   rounded-full  transition-all duration-300">
+      <div className='my-8 shadow-md rounded-lg bg-white p-6'>
+        <h4 className='font-semibold text-xl mb-4 text-black-600'>Search the stock to do fundamental analysis</h4>
+        <div className='flex flex-col gap-5'>
+          <input
+            type='text'
+            // value={stockName}
+            // onChange={(e) => setStockName(e.target.value)}
+            placeholder='Search stock name...'
+            className=' border border-gray-300 p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-black-500 focus:border-black-500'
+          />
+          {/* <button
+            className='ml-4 p-3 bg-black text-white font-bold rounded-lg hover:bg-black-700 transition duration-300'
+            onClick={() => handleAddToWatchList(stockName)}
+          >
+            Add to Watch List
+          </button> */}
+          <Button className="bg-primary text-white px-10 py-2 rounded-full  transition-all duration-300"  onClick={() => handleNavigation('/dashboard/fundamental-analysis/start')}>
           🚀 Start 🚀
         </Button>
-      </div>
+        </div>
+        </div>
     </div>
   );
 }
