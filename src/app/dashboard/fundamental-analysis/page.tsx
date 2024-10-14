@@ -84,7 +84,7 @@ function Financial() {
       </div>
 
       <div className='my-8 shadow-md rounded-lg bg-white p-6'>
-        <h4 className='font-semibold text-xl mb-4 text-black-600'>Search the stock to do fundamental analysis</h4>
+        <h4 className='font-semibold text-xl mb-4 text-black-600'> Do fundamental analysis of stocks from your watchlist .</h4>
         <div className='flex flex-col gap-5'>
           <input
             type='text'
