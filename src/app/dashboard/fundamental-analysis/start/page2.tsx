@@ -1,3 +1,54 @@
+// import React from 'react'
+// import {
+//     Collapsible,
+//     CollapsibleContent,
+//     CollapsibleTrigger,
+//   } from "@/components/ui/collapsible"
+// import Stage1 from './_stages/Stage1'
+// import { ArrowDown } from 'lucide-react'
+// import Stage2 from './_stages/Stage2'
+
+
+// function Page() {
+//   return (
+//     <div className="container mx-auto shadow-lg p-5 bg-gradient-to-r rounded-lg from-gray-100 to-gray-200 ">
+//       <div className="p-10 rounded-lg bg-white text-center shadow-md">
+//         <h2 className="font-bold text-3xl text-primary mb-4">🚀 Fundamental Analysis Stages 🚀</h2>
+//         <p className="text-gray-700 mb-4">We will start looking at the stages from here  :</p>
+//       </div>
+
+//       <div className="p-10 rounded-lg bg-white text-center shadow-md mt-10">
+//       <Collapsible>
+//   <CollapsibleTrigger><h3 className="font-semibold text-2xl mb-4">🔍 Stage 1: Understanding the Company  🔽  </h3></CollapsibleTrigger>
+//   <CollapsibleContent>
+//   <p className="text-gray-700 mb-4">
+//           From general understanding, see if there are any moats and try to identify companies with less competition (Equity Research).
+//         </p>
+//         <Stage1 />
+//   </CollapsibleContent>
+// </Collapsible>
+//  </div>
+//       <div className="p-10 rounded-lg bg-white text-center shadow-md mt-10">
+//       <Collapsible>
+//   <CollapsibleTrigger><h3 className="font-semibold text-2xl mb-4">📈 Stage 2: Application of Checklist  🔽  </h3></CollapsibleTrigger>
+//   <CollapsibleContent>
+//         <Stage2 />
+//   </CollapsibleContent>
+// </Collapsible>
+//  </div>
+
+
+
+//       {/* <div className="text-center mt-10">
+//         <button className="bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-700 transition-all duration-300">
+//           🎯 Proceed to Stage 2 🎯
+//         </button>
+//       </div> */}
+
+
+//     </div>
+//   )
+// }
 "use client";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -14,19 +65,8 @@ type Stock = {
   returnOnEquity: number; // Return on Equity
 };
 
-type Fundamental = {
-  id: number;
-  stock_name: string;
-  pe_ratio: string;
-  market_cap: string;
-  gross_profit_margin: string;
-  return_on_equity: string;
-  created_at: string;
-};
-
 function Page() {
   const [watchList, setWatchList] = useState<Stock[]>([]);
-  const [fundamentals, setFundamentals] = useState<Fundamental[]>([]);
 
   // Fetch watchlist from the backend when the component loads
   useEffect(() => {
@@ -45,23 +85,7 @@ function Page() {
       }
     };
 
-    const fetchFundamentals = async () => {
-      try {
-        const response = await axios.get(
-          "http://localhost:3008/api/v1/fundamentals/view"
-        );
-        if (response.status === 200) {
-          setFundamentals(response.data);
-        } else {
-          console.error("Failed to fetch fundamentals");
-        }
-      } catch (error) {
-        console.error("Error fetching fundamentals:", error);
-      }
-    };
-
     fetchWatchList();
-    fetchFundamentals();
   }, []); // Empty dependency array ensures it runs once when the component mounts
 
   const handleAddToFundamentals = async (stockId: number) => {
@@ -218,38 +242,6 @@ function Page() {
             </div>
           ))
         )}
-      </div>
-
-      {/* Fundamentals Section */}
-      <div className="mt-10">
-        <h2 className="font-bold text-2xl text-black-600 text-center mb-4">
-          Fundamentals Information
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {fundamentals.length === 0 ? (
-            <p className="text-gray-500 text-center">No fundamentals available</p>
-          ) : (
-            fundamentals.map((fundamental) => (
-              <div
-                key={fundamental.id}
-                className="bg-white shadow-md rounded-lg p-6 border border-gray-200"
-              >
-                <h4 className="font-bold text-xl text-black-600">
-                  {fundamental.stock_name}
-                </h4>
-                <p className="text-sm text-gray-500">
-                  Created At: {new Date(fundamental.created_at).toLocaleString()}
-                </p>
-                <div className="mt-4">
-                  <p><strong>P/E Ratio:</strong> {fundamental.pe_ratio}</p>
-                  <p><strong>Market Cap:</strong> {fundamental.market_cap}</p>
-                  <p><strong>Gross Profit Margin:</strong> {fundamental.gross_profit_margin}%</p>
-                  <p><strong>Return on Equity:</strong> {fundamental.return_on_equity}%</p>
-                </div>
-              </div>
-            ))
-          )}
-        </div>
       </div>
     </div>
   );
