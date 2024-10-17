@@ -49,8 +49,6 @@
 //     </div>
 //   )
 // }
-
-// export default Page
 "use client";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -90,22 +88,31 @@ function Page() {
     fetchWatchList();
   }, []); // Empty dependency array ensures it runs once when the component mounts
 
-  const handleUpdate = async (stockId: number) => {
-    const stockToUpdate = watchList.find((stock) => stock.id === stockId);
-    if (stockToUpdate) {
+  const handleAddToFundamentals = async (stockId: number) => {
+    const stockToAdd = watchList.find((stock) => stock.id === stockId);
+    if (stockToAdd) {
+      // Prepare the data to send, excluding the symbol
+      const dataToSend = {
+        stockName: stockToAdd.name,
+        peRatio: stockToAdd.peRatio,
+        marketCap: stockToAdd.marketCap,
+        grossProfitMargin: stockToAdd.grossProfitMargin,
+        returnOnEquity: stockToAdd.returnOnEquity,
+      };
+
       try {
-        const response = await axios.put(
-          `http://localhost:3008/api/v1/watchlist/update/${stockId}`,
-          stockToUpdate
+        const response = await axios.post(
+          "http://localhost:3008/api/v1/fundamentals/add",
+          dataToSend
         );
 
         if (response.status === 200) {
-          console.log("Stock updated successfully");
+          console.log("Fundamentals added successfully");
         } else {
-          console.error("Failed to update stock");
+          console.error("Failed to add fundamentals");
         }
       } catch (error) {
-        console.error("Error updating stock:", error);
+        console.error("Error adding fundamentals:", error);
       }
     }
   };
@@ -117,7 +124,7 @@ function Page() {
   ) => {
     setWatchList((prevWatchList) =>
       prevWatchList.map((stock) =>
-        stock.id === stockId ? { ...stock, [field]: e.target.value } : stock
+        stock.id === stockId ? { ...stock, [field]: parseFloat(e.target.value) } : stock
       )
     );
   };
@@ -225,12 +232,12 @@ function Page() {
                 </span>
               </div>
 
-              {/* Submit Button */}
+              {/* Add to Fundamentals Button */}
               <button
-                onClick={() => handleUpdate(stock.id)}
+                onClick={() => handleAddToFundamentals(stock.id)}
                 className="w-full p-3 bg-black text-white font-bold rounded-lg hover:bg-black-700 transition duration-300"
               >
-                Submit
+                Add to Fundamentals
               </button>
             </div>
           ))

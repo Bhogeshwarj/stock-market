@@ -176,7 +176,7 @@ function Page() {
           <table className='min-w-full table-auto border-collapse'>
             <thead>
               <tr className='bg-gray-100'>
-                <th className='px-4 py-2 border text-left'>ID</th>
+
                 <th className='px-4 py-2 border text-left'>Stock</th>
                 <th className='px-4 py-2 border text-left'>Symbol</th>
                 <th className='px-4 py-2 border text-left'>Analysed</th>
@@ -187,8 +187,7 @@ function Page() {
             <tbody>
               {watchList.map((stock) => (
                 <tr key={stock.id} className='border'>
-                  <td className='px-4 py-2 border text-gray-700 font-medium'>{stock.id}</td>
-                  <td className='px-4 py-2 border text-gray-700 font-medium'>{stock.stockName}</td>
+                  <td className='px-4 py-2 border text-gray-700 font-medium'>{stock.name}</td>
                   <td className='px-4 py-2 border text-gray-700 font-medium'>{stock.symbol}</td>
                   <td className='px-4 py-2 border text-center'>{stock.analysed ? 'Yes' : 'No'}</td>
                   <td className='px-4 py-2 border text-gray-700 font-medium'>{stock.remark}</td>
