@@ -86,13 +86,13 @@ function Financial() {
       <div className='my-8 shadow-md rounded-lg bg-white p-6'>
         <h4 className='font-semibold text-xl mb-4 text-black-600'> Do fundamental analysis of stocks from your watchlist .</h4>
         <div className='flex flex-col gap-5'>
-          <input
+          {/* <input
             type='text'
             // value={stockName}
             // onChange={(e) => setStockName(e.target.value)}
             placeholder='Search stock name...'
             className=' border border-gray-300 p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-black-500 focus:border-black-500'
-          />
+          /> */}
           {/* <button
             className='ml-4 p-3 bg-black text-white font-bold rounded-lg hover:bg-black-700 transition duration-300'
             onClick={() => handleAddToWatchList(stockName)}
